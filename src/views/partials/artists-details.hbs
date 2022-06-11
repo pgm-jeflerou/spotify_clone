@@ -1,0 +1,66 @@
+<div class="artist-details">
+    <h2>{{artist.name}}</h2>
+    <div class="albums">
+        <ul>
+            {{#each filteredAlbums}}
+            <li class="album flex-container" data-id="{{id}}">
+                <div class="container">
+                    <h3>
+                        {{name}}
+                    </h3>
+                    <div class="image-container">
+                        <img src="/images/cover.jpg" alt="cover">
+                    </div>
+                </div>
+                <ul class="album-songs">
+                    {{#each ../filteredSongs}}
+                    <li class="album-song flex-container" data-id="{{id}}">
+                        <span class="song-title-albums">{{#song ../id this}}{{/song}}</span>
+                        <div class="button-container">
+                            {{#editor ../../user.role}}
+                            <button class="edit-song">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            {{/editor}}
+                            {{#admin ../../user.role}}
+                            <button class="delete-song">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                            {{/admin}}
+                        </div>
+                    </li>
+                    {{/each}}
+                    {{#admin ../user.role}}
+                    <div class="new-songs flex-container">
+                        <input type="text" placeholder="Name song" id="{{../id}}">
+                        <button class="add-song">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+                    </div>
+                    {{/admin}}
+                </ul>
+                <div class="button-container">
+                    {{#editor ../user.role}}
+                    <button class="edit-album">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    {{/editor}}
+                    {{#admin ../user.role}}
+                    <button class="delete-album">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                    {{/admin}}
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        {{#admin user.role}}
+        <div class="new-album flex-container">
+            <input type="text" placeholder="Name album" id="add-album">
+            <button class="add-album">
+                <i class="fa-solid fa-circle-plus"></i>
+            </button>
+        </div>
+        {{/admin}}
+    </div>
+</div>

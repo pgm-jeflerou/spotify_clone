@@ -1,0 +1,31 @@
+<div class="artists">
+    <h2 class="artists-title">Artists</h2>
+    <ul>
+        {{#each artists}}
+        <li class="artist flex-container" data-id="{{id}}">
+            <a href="/artist/{{id}}">{{name}}</a>
+            <div class="button-container flex-container">
+                {{#editor ../user.role}}
+                <button class="artist-edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                {{/editor}}
+                {{#admin ../user.role}}
+                <button class="artist-delete">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+                {{/admin}}
+            </div>
+        </li>
+
+        {{/each}}
+    </ul>
+    {{#admin user.role}}
+    <div class="new-artist flex-container">
+        <input type="text" name="name" placeholder="Name Artist" id="add-artist">
+        <button class="add-artist" type="submit">
+            <i class="fa-solid fa-circle-plus"></i>
+        </button>
+    </div>
+    {{/admin}}
+</div>

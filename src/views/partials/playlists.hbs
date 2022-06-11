@@ -1,0 +1,32 @@
+<div class="playlists">
+    <h2 class="playlists-title">Playlists</h2>
+    <ul>
+        {{#each playlists}}
+
+        <li class="playlist flex-container" data-id="{{id}}">
+            <a href="/playlist/{{id}}">{{name}}</a>
+            <div class="button-container flex-container">
+                {{#editor ../user.role}}
+                <button class="playlist-edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                {{/editor}}
+                {{#admin ../user.role}}
+                <button class="playlist-delete">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+                {{/admin}}
+            </div>
+        </li>
+
+        {{/each}}
+    </ul>
+    {{#admin user.role}}
+    <div class="new-playlist flex-container">
+        <input type="text" placeholder="Name Playlist" id="add-playlist">
+        <button class="add-playlist">
+            <i class="fa-solid fa-circle-plus"></i>
+        </button>
+    </div>
+    {{/admin}}
+</div>

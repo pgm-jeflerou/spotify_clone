@@ -1,0 +1,51 @@
+<div class="flex-container footer-container">
+    <div class="song-description flex-container">
+        <div class="image-container">
+            <img src="/images/playlistCover.jpg" alt="cover">
+        </div>
+        <h3>
+            {{songs.0.name}}
+        </h3>
+        <p>
+            <span class="song-info">{{songs.0.artist.name}}</span>
+            <span class="song-info">{{songs.0.album.name}}</span>
+        </p>
+    </div>
+    <div class="controller">
+        <div class="controller-button-container flex-container">
+            <button class="shuffle">
+                <i class="fa-solid fa-shuffle"></i>
+            </button>
+            <button class="previous-song">
+                <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="play controller-play">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button class="next-song">
+                <i class="fa-solid fa-forward"></i>
+            </button>
+            <button class="restart-song">
+                <i class="fa-solid fa-repeat"></i>
+            </button>
+        </div>
+        <div class="progress-bar">
+
+        </div>
+    </div>
+    <div class="volume flex-container">
+        <i class="fa-solid fa-speaker"></i>
+        <input type="range" min="0" max="1" value="1" step="0.01" class="soundSlider">
+        <button class="theme-switcher">switch theme</button>
+    </div>
+</div>
+
+<div class="hidden modal">
+    <h3 class="modal-title">
+        change the name
+    </h3>
+    <input type="text" class="new-name">
+    <button class="new-name-button">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+</div>

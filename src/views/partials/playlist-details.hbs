@@ -1,0 +1,51 @@
+<div class="songs">
+    <div class="flex-container playlist-details-header">
+        <h2> {{playlist.name}} </h2>
+        {{#editor user.role}}
+        <div class="button-container">
+            <select class="new-song">
+                {{#each ../otherSongs}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <button class="add-song-playlist"> <i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        {{/editor}}
+    </div>
+    <ul>
+        {{#each songs}}
+
+        <li class="song flex-container" data-id="{{id}}">
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="/images/cover.jpg" alt="cover">
+                </div>
+                <h2>
+                    {{ name }}
+                </h2>
+            </div>
+            <div class="album">
+                {{#album album.id ../albums}}
+                {{/album}}
+            </div>
+            <div class="singer">
+                {{#artist artist.id ../artists}}
+                {{/artist}}
+            </div>
+            <div class="button-container">
+                <button class="play" id="{{id}}">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </div>
+            {{#editor ../user.role}}
+            <div class="remove-song">
+                <button class="playlist-remove-song">
+                    <i class="fa-solid fa-circle-minus"></i>
+                </button>
+            </div>
+            {{/editor}}
+        </li>
+
+        {{/each}}
+    </ul>
+</div>
